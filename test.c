@@ -20,7 +20,7 @@ uint8_t* test_allocation(uint32_t size)
     uint8_t* ptr = mempool_alloc(size);
     if (ptr != NULL)
     {
-        printf("Allocated offset 0%lx size:%u\n", (uintptr_t)ptr - (uintptr_t)storage, size);
+        printf("Allocated offset 0x%lx size:%u\n", (uintptr_t)ptr - (uintptr_t)storage, size);
         /* make sure address is in the storage area and meets alignment requirement */
         assert(ptr >= &storage[0] && (ptr - storage + size) <= STORAGE_SIZE);
         assert(((uintptr_t)ptr % MAX_ALIGN) == 0);
